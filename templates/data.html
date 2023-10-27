@@ -1,0 +1,56 @@
+<!-- this example code is taken from Hants repo here: https://github.com/hantswilliams/HHA_504_2023/blob/main/WK2/flaskapp_0/templates/data.html and then modified for the assignment -->
+
+{% extends "index.html" %} 
+
+{% block content %}
+
+    <section>
+        <h2 class="text-xl mb-2">Employees</h2>
+        <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Employee ID</th>
+                    <th class="px-4 py-2">SSN</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data.values %}
+                <tr>
+                    <td class="border px-4 py-2">{{ data[0] }}</td>
+                    <td class="border px-4 py-2">{{ data[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>        
+        <h2 class="text-xl mb-2">Contact Info</h2>
+        <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Contact ID</th>
+                    <th class="px-4 py-2">Employee ID</th>
+                    <th class="px-4 py-2">First Name</th>
+                    <th class="px-4 py-2">Last Name</th>
+                    <th class="px-4 py-2">Date of Birth</th>
+                    <th class="px-4 py-2">Address</th>
+                    <th class="px-4 py-2">Phone Number</th>
+                    <th class="px-4 py-2">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data2.values %}
+                <tr>
+                    <td class="border px-4 py-2">{{ data[0] }}</td>
+                    <td class="border px-4 py-2">{{ data[1] }}</td>
+                    <td class="border px-4 py-2">{{ data[2] }}</td>
+                    <td class="border px-4 py-2">{{ data[3] }}</td>
+                    <td class="border px-4 py-2">{{ data[4] }}</td>
+                    <td class="border px-4 py-2">{{ data[5] }}</td>
+                    <td class="border px-4 py-2">{{ data[6] }}</td>
+                    <td class="border px-4 py-2">{{ data[7] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+{% endblock %}
