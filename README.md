@@ -71,7 +71,7 @@
 ![image](https://github.com/meglee67/mysql_cloudmanaged_databases/assets/123908362/0a80ab53-a7f0-44dd-81b3-7ebb00cefdad)
 
 ## **3. SQLAlchemy and Flask Integration**
-*
+* To set up a Flask app I copied over my [app.py and templates](https://github.com/meglee67/flask_4_databases_mysql_vm/blob/main/app.py) from HHA 504 HW 4B.
 
 ## **Database Migrations with Alembic**
 *
