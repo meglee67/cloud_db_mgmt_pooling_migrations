@@ -21,12 +21,12 @@
   * At "Connections" choose a Public IP, and add a network. Name the network AllowAll and set it to 0.0.0.0/0 and then click the button to create your instance.
 
 ### Azure
-* Login on the [Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal) and search in the bar for Azure Databased for MySQL. Click on it and then click create.
+* Login on the [Azure Portal](https://azure.microsoft.com/en-us/get-started/azure-portal) and search in the bar for Azure Database for MySQL. Click on it and then click create.
 * You will be brough to a page with two options, choose the Flexible Server.
 ![image](https://github.com/meglee67/mysql_cloudmanaged_databases/assets/123908362/fefe900f-cce5-452a-9e1f-b557d0d094a0)
 * Choose an existing resource group or create a new one
 ![image](https://github.com/meglee67/mysql_cloudmanaged_databases/assets/123908362/58af9f5d-c6be-4edb-811e-1c4fd59f3995)
-* Create a server name relevant to the assignment (mine was hha504-hw4)
+* Create a server name relevant to the assignment (mine was hha504-hw4C)
 * Fill out all required fields
 ![image](https://github.com/meglee67/mysql_cloudmanaged_databases/assets/123908362/0e9f0669-a360-4de4-87df-c7a806223c1d)
 * Under Networking make sure to enable public access, and to allow public access under Firewall rules. For the start and end IP address, use 0.0.0.0 and 255.255.255.255
