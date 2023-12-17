@@ -56,10 +56,8 @@
 ![image](https://github.com/meglee67/mysql_cloudmanaged_databases/assets/123908362/25566c91-abdd-4045-98bd-def38aef6d93)
 
 ## **2a. Database Schema and Data**
-* I re-used my SQL from [HW 4B](https://github.com/meglee67/flask_4_databases_mysql_vm). 
-* The contact_info table uses the contact ID as a primary key, and the employee ID as a foreign key, referincing the employee ID found in the employees table.
-* To populate these tables I used the command ``` INSERT INTO example field VALUES ```
-* Then to check if I successfully pushed data into the tables I used the commands ``` SELECT * FROM employees; ``` and ``` SELECT * FROM contact_info; ``` to view the tables.
+* I copied and modified code from [Week 4 gcp.py](https://github.com/hantswilliams/HHA_504_2023/blob/main/WK4/code/migrations/gcp.py)
+
 
 ## **2b. Using MySQl Workbench to Generate ERD**
 * To create the ERD, I navigated to the Database button in the options ribbon and chose the button "Reverse Engineer", also accesisble by hitting CTRL+R
