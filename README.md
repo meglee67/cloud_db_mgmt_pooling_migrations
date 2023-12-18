@@ -2,6 +2,8 @@
 * HHA 504 HW 4C
 * Due 10/27
 * OG Instructions below
+* **note that due to running out of Azure credits (I did contact support and also made an account on my StonyBrookMedicine email), I only completed this task in GCP, but I did write out the steps on how to do some of the inital work in Azure, and the rest of the steps would be similar with a few changes.**
+
 ## **1. Connection Pooling Setup**
 ### Creating databases on Google Cloud Platform (GCP) and Azure 
 ### GCP
