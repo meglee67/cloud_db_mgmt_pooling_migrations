@@ -72,7 +72,15 @@
 * To set up a Flask app I copied over my [app.py and templates](https://github.com/meglee67/flask_4_databases_mysql_vm/blob/main/app.py) from HHA 504 HW 4B.
 
 ## **Database Migrations with Alembic**
-*
+* I ran the command ``alembic init migrations`` which created an alembic.ini file and a migrations folder
+* I added the alembic.ini to my .gitignore file
+* Within alembic.ini I edited ``sqlalchemy.url = driver://user:pass@localhost/dbname`` to ``sqlalchemy.url = mysql+mysqlconnector://usernamehere:passwordhere@IPaddresshere/databasenamehere``
+* Then within the env.py file that is found under the migrations folder, I added in ``from gcp import Base`` as the file I used to create the tables is named gcp.py
+* then I changed ``target_metadata = none`` into ``target_metadata = Base.metadata`` and commented out the none one
+* Then to create the migration I did ``alembic revision --autogenerate -m "create tables"``
+* Next I ran the migration using ``alembic upgrade head``
+* To save I ran ``alembic upgrade head --sql > migration.sql``. This created a file named migration.sql
+
 <br>
 
 
