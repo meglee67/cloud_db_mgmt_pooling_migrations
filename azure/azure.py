@@ -8,21 +8,23 @@ pip install sqlalchemy alembic mysql-connector-python pymysql
 
 ## Part 1 - Define SQLAlchemy models for patients and their medical records:
 
-from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
+from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey, BigInteger, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from dotenv import load_dotenv
+import os
+
 
 load_dotenv()  # Load environment variables from .env file
 
 # Database connection settings from environment variables
 DB_HOST = os.getenv("DB_HOST")
-DB_DATABASE = os.getenv("DB_DATABASE")
 DB_USERNAME = os.getenv("DB_USERNAME")
+DB_DATABASE = os.getenv("DB_DATABASE")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_PORT = int(os.getenv("DB_PORT", 3306))
 DB_CHARSET = os.getenv("DB_CHARSET", "utf8mb4")
-
 
 Base = declarative_base()
 
@@ -48,7 +50,7 @@ class InsuranceInfo(Base):
     copay_amount = Column(Float, nullable=False)  
     deductible_amount = Column(Float) 
 
-    patient = relationship('Patient', back_populates='records')
+    patient = relationship('Patient', back_populates='insurance')
 
 
 ### Part 2 - initial sqlalchemy-engine to connect to db:
@@ -56,6 +58,10 @@ class InsuranceInfo(Base):
 connect_args={'ssl':{'fake_flag_to_enable_tls': True}}
 connection_string = (f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DATABASE}'
                     f"?charset={DB_CHARSET}")
+
+engine = create_engine(
+        connection_string,
+        connect_args=connect_args)
 
 ## Test connection
 

@@ -2,6 +2,7 @@
 
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship
 from faker import Faker
 from gcp import Patient, InsuranceInfo
 import os
@@ -51,9 +52,10 @@ for _ in range(10):
         last_name=fake.last_name(),
         date_of_birth=fake.date_of_birth(minimum_age=18, maximum_age=100),  
         gender=random.choice(["Male", "Female"]),
-        phone_number=phone_number()
+        contact_number=contact_number()
     )
     session.add(patient)
+    insurance = relationship('InsuranceInfo', back_populates='patient')
 
 insurance_providers = [
     "Empire Blue Cross Blue Shield",
@@ -69,10 +71,11 @@ for _ in range(10):
         patient_id=session.query(Patient).order_by(func.rand()).first().id,
         insurance_provider=random.choice(insurance_providers),  # Randomly selects an insurance provider from the list
         insurance_id_number=fake.random_number(digits=10),
-        copay_amount=random.uniform(30.0, 100.0),
-        deductible_amount=random.uniform(500.0, 1000.0)
+        copay_amount=random.randint(30.0, 100.0),
+        deductible_amount=random.randint(500.0, 1000.0)
     )
     session.add(insuranceinfo)
+    patient = relationship('Patient', back_populates='records')
 
 # Commit the changes to the database
 session.commit()
